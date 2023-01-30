@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="BooksWPF.Views.AddGenreView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BooksWPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Width="200" VerticalAlignment="Center">
+        <TextBlock Text="Add Genre" TextAlignment="Center" FontSize="30"
+                   FontWeight="SemiBold" Foreground="White"
+                   FontFamily="{StaticResource Quicksand}"/>
+
+        <Label Content="Genre Name"/>
+        <TextBox/>
+        <Button Width="70" Height="30"
+                Content="Add" Margin="0 15 0 0"/>
+    </StackPanel>
+</UserControl>

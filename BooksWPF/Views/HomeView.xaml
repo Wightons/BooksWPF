@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="BooksWPF.Views.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BooksWPF.Views"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="Gray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Background="#333333">
+            <Image Source="\Assets\catalog.png" Height="90" Margin="0 5 0 0"/>
+            <TextBlock Text="{Binding ProfileName}" TextAlignment="Center" FontSize="19"
+                       FontFamily="{StaticResource Quicksand}" Foreground="White"/>
+            <Button Style="{StaticResource MenuButton}" Content="Browse" Height="30" Margin="0 5 0 0"/>
+            <Button Style="{StaticResource MenuButton}" Content="Saved" Height="30"/>
+            <Button Style="{StaticResource MenuButton}" Content="Log out" Height="30"
+                    Command="{Binding LogoutCommand}"/>
+            
+            <StackPanel Visibility="{Binding AdminPanelVisibility}" Margin="0 10 0 0"
+                        Background="Tomato">
+                <TextBlock Text="Admin Panel" TextAlignment="Center"
+                           FontSize="14" Foreground="Gold"/>
+                <RadioButton Content="Authors">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Checked">
+                            <i:InvokeCommandAction Command="{Binding CheckedCommand}"
+                                                   CommandParameter="Authors"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
+                <RadioButton Content="Books">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Checked">
+                            <i:InvokeCommandAction Command="{Binding CheckedCommand}"
+                                                   CommandParameter="Books"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
+                <RadioButton Content="Genres">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Checked">
+                            <i:InvokeCommandAction Command="{Binding CheckedCommand}"
+                                                   CommandParameter="Genres"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
+                <RadioButton Content="Vendors">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Checked">
+                            <i:InvokeCommandAction Command="{Binding CheckedCommand}"
+                                                   CommandParameter="Vendors"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
+            </StackPanel>
+            
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="\Assets\water-journal.jpg" Opacity="0.3"/>
+            </Grid.Background>
+        </Grid>
+
+        <ContentPresenter Content="{Binding InnerNavigation.CurrentView}" Grid.Column="1"/>
+
+
+    </Grid>
+</UserControl>

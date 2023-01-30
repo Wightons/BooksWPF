@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="BooksWPF.Controls.ImagePicker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BooksWPF.Controls"
+             x:Name="root"
+             mc:Ignorable="d">
+    <StackPanel Orientation="Horizontal">
+        <ComboBox x:Name="Operation" Width="60" SelectionChanged="OnSelect"
+                  SelectedValuePath="Content">
+            <ComboBoxItem Content="Choose File"/>
+            <ComboBoxItem Content="From URL"/>
+        </ComboBox>
+        <TextBox Width="{Binding Width, ElementName=root}" 
+                 Text="{Binding Text, ElementName=root}"/>
+    </StackPanel>
+</UserControl>
